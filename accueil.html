@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>PROJET H54</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link
+      href="http://files.eulogiciel.com/assets/img/favicon.png"
+      rel="icon"
+    />
+    <link
+      href="http://files.eulogiciel.com/assets/img/apple-touch-icon.png"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/icofont/icofont.min.css" rel="stylesheet" />
+    <link href="assets/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/venobox/venobox.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/remixicon/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/owl.carousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/aos/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      href="assets/css/style.css"
+      rel="stylesheet"
+    />
+
+      <style>
+      .img-fluid {
+    height: 100px;
+    width: 100px;
+}
+    </style>
+
+   
+  </head>
+
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center">
+        <div class="logo mr-auto">
+          <h1 class="text-light">
+            <a href="index.html"><span>PROJET H54</span></a>
+          </h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="entreprises.html">Entreprises</a></li>
+             <li><a href="#features">Contact</a></li>
+           
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Accueil</h2>
+            <ol>
+              <li</li>
+              <li></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs Section -->
+
+       <section class="inner-page">
+        <div class="container">
+            <button onclick="share()" class="btn btn-outline-primary">
+          Partager position
+        </button>
+          <p>Historique Position</p>
+
+          <div class="card flex-row flex-wrap"></div>
+
+          <p></p>
+          <div class="card" id="menx"></div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <div id="preloader"></div>
+
+   <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/venobox/venobox.min.js"></script>
+    <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/vendor/counterup/counterup.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+  <script src="app.js"></script>
+
+  <script type="text/javascript">
+
+        var lieu = document.getElementById("menx");
+      db.collection("COORDONEES")
+
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            //    console.log(`${doc.data().entreprise_image}`);
+            lieu.innerHTML += ` 
+
+   <div class="row no-gutters" onclick="detail(${
+               doc.data().coord_lati
+             },${doc.data().coord_longi})">
+              <div class="col-auto">
+                <img
+                   src="data:image/png;base64,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"
+               class="img-fluid"
+                  height="100px"
+                  width="100px"
+                  alt=""
+                />
+              </div>
+              <div class="col">
+                <div class="card-block px-2">
+                  <h4 class="card-title">Expéditeur: ${doc.data().coord_exp}</h4>
+                  <p class="card-text">Contact:${doc.data().coord_num}</p>
+                  </div>
+              </div>
+            </div>
+
+         `;
+          });
+        });
+
+
+         function detail(lati, longi) {
+        // alert(longi);
+        document.location.href =
+          "geolocation.html?arlat=" + lati + "&arlong=" + longi;
+      }
+
+      function share() {
+        document.location.href = "share.html";
+      }
+
+  
+  </script>
+
+  </body>
+</html>
