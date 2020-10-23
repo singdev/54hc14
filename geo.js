@@ -45,7 +45,10 @@ function calculateAndDisplayRoute(
   directionsService.route(
     {
       origin: { lat: parseFloat(latt), lng: parseFloat(loon) },
-      destination: { lat: parseFloat(LATARV), lng: parseFloat(LONGARV) },
+      destination: {
+        lat: parseFloat(LATARV),
+        lng: parseFloat(LONGARV),
+      },
       // Note that Javascript allows us to access the constant
       // using square brackets and a string value as its
       // "property."
