@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TEST H54</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4iBBwynUIceKfZaoJBembINjwQkMdbEo&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+
+    <!-- jQuery Settings -->
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div id="floating-panel">
+      <b>Mode de déplacement: </b>
+      <select id="mode">
+        <option value="DRIVING">VOITURE</option>
+        <option value="WALKING">A PIED</option>
+      </select>
+    </div>
+    <div id="map"></div>
+  </body>
+
+  <script src="geo.js"></script>
+</html>

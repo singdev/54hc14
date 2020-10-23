@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>PROJET H54</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link
+      href="http://files.eulogiciel.com/assets/img/favicon.png"
+      rel="icon"
+    />
+    <link
+      href="http://files.eulogiciel.com/assets/img/apple-touch-icon.png"
+      rel="apple-touch-icon"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="http://files.eulogiciel.com/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/icofont/icofont.min.css" rel="stylesheet" />
+    <link href="assets/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="http://files.eulogiciel.com/assets/vendor/venobox/venobox.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://files.eulogiciel.com/assets/vendor/remixicon/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://files.eulogiciel.com/assets/vendor/owl.carousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://files.eulogiciel.com/assets/vendor/aos/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      href="http://files.eulogiciel.com/assets/css/style.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .img-fluid {
+    height: 100px;
+    width: 100px;
+}
+    </style>
+   
+  </head>
+
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center">
+        <div class="logo mr-auto">
+          <h1 class="text-light">
+            <a href="index.html"><span>PROJET H54</span></a>
+          </h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul>
+            <li class="active"><a href="accueil.html">Accueil</a></li>
+             <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- .nav-menu -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Login Page</h2>
+            <ol>
+              <li</li>
+              <li></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs Section -->
+
+       <section class="inner-page">
+        <div class="container">
+          <p>Historique Position</p>
+
+          <div class="card flex-row flex-wrap"></div>
+
+          <p></p>
+          <div class="card" id="menx"></div>
+        </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <div id="preloader"></div>
+
+   <script src="http://files.eulogiciel.com/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/php-email-form/validate.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/venobox/venobox.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/counterup/counterup.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="http://files.eulogiciel.com/assets/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="http://files.eulogiciel.com/assets/js/main.js"></script>
+
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+  <script src="app.js"></script>
+
+  <script type="text/javascript">
+
+        var lieu = document.getElementById("menx");
+      db.collection("ENTREPRISES")
+
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+            //    console.log(`${doc.data().entreprise_image}`);
+            lieu.innerHTML += ` 
+
+   <div class="row no-gutters" onclick="detail(${
+               doc.data().coordlat
+             },${doc.data().coordlong})">
+              <div class="col-auto" heigh="100px" width="100px">
+                <img
+                   src="${doc.data().coordicon}" 
+                    class="img-fluid"
+                     alt=""
+                />
+              </div>
+              <div class="col">
+                <div class="card-block px-2">
+                  <h4 class="card-title">Entreprise: ${doc.data().coordname}</h4>
+                  
+                </div>
+              </div>
+            </div>
+
+         `;
+          });
+        });
+
+
+         function detail(lati, longi) {
+        // alert(longi);
+        document.location.href =
+          "geolocation.html?arlat=" + lati + "&arlong=" + longi;
+      }
+
+      function share() {
+        document.location.href = "share.html";
+      }
+
+  
+  </script>
+
+  </body>
+</html>
